@@ -9,7 +9,7 @@ using IAlgorithm = std::function<ComputedData<T>(const OptionData<T>& options, c
 
 // Normal variates etc.
 double n(double x) {
-    const double A = 1.0 / std::sqrt(2.0 * 3.14159265358979323846);
+    const double A = 1.0 / std::sqrt(2.0 * M_PI);
     return A * std::exp(-x * x * 0.5);
 }
 // C++11 supports the error function
