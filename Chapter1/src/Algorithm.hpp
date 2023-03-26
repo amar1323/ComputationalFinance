@@ -75,7 +75,7 @@ class Processing {
     }
 };
 
-template <typename T>
+template <typename T> //templated functor
 class ProcessingII {
    public:
     ComputedData<T> operator()(const OptionData<T>& optData,
