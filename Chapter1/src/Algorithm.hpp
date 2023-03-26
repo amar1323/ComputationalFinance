@@ -66,13 +66,9 @@ ComputedData<V> PutValues(const OptionData<V>& optData,
     return std::make_tuple(price, delta, gamma);
 }
 
-template <typename T>
+template <typename T> //templated functor
 class Processing {
    public:
-    ComputedData<T> convert(const OptionData<T>& optData,
-                            const T& S) const {
-        return CallValues(optData, S);
-    }
     ComputedData<T> operator()(const OptionData<T>& optData,
                                const T& S) const {
         return CallValues(optData, S);
@@ -82,10 +78,6 @@ class Processing {
 template <typename T>
 class ProcessingII {
    public:
-    ComputedData<T> convert(const OptionData<T>& optData,
-                            const T& S) const {
-        return PutValues(optData, S);
-    }
     ComputedData<T> operator()(const OptionData<T>& optData,
                                const T& S) const {
         return PutValues(optData, S);
